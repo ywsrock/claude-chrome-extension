@@ -18,7 +18,7 @@ Claude AIアシスタントと対話するためのChrome拡張機能です。We
 
 1. このリポジトリをクローン:
 ```bash
-git clone https://github.com/yourusername/claude-chrome-extension.git
+git clone https://github.com/ywsrock/clcaude-chrome-extension.git
 ```
 
 2. Chromeで `chrome://extensions/` を開く

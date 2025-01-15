@@ -17,7 +17,7 @@ A Chrome extension for interacting with the Claude AI assistant. This extension 
 
 1. Clone this repository:
 ```bash
-git clone https://github.com/yourusername/claude-chrome-extension.git
+git clone https://github.com/ywsrock/clcaude-chrome-extension.git
 ```
 
 2. Open Chrome and navigate to `chrome://extensions/`
