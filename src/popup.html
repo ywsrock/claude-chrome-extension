@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Claude Assistant</title>
+  <style>
+    body {
+      width: 400px;
+      padding: 10px;
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    textarea {
+      width: 100%;
+      min-height: 80px;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      resize: vertical;
+    }
+    .control-panel {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    .settings-group {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    select {
+      padding: 6px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+    #response {
+      background-color: #f5f5f5;
+      padding: 10px;
+      border-radius: 4px;
+      white-space: pre-wrap;
+      max-height: 300px;
+      overflow-y: auto;
+    }
+    button {
+      padding: 8px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:disabled {
+      background-color: #cccccc;
+      cursor: not-allowed;
+    }
+    .loading {
+      text-align: center;
+      color: #666;
+    }
+    label {
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div style="display: flex; justify-content: space-between; align-items: center">
+      <h2>Claude Assistant</h2>
+      <button id="settingsButton" style="padding: 4px 8px;">
+        ⚙️ 設定
+      </button>
+    </div>
+    
+    <div class="settings-group">
+      <label for="language">言語:</label>
+      <select id="language">
+        <option value="ja">日本語</option>
+        <option value="en">English</option>
+      </select>
+      
+      <label for="temperature">Temperature:</label>
+      <select id="temperature">
+        <option value="0">0 - 正確</option>
+        <option value="0.3">0.3 - バランス</option>
+        <option value="0.7">0.7 - 創造的</option>
+        <option value="1">1.0 - 自由</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="prompt">プロンプト:</label>
+      <textarea id="prompt" placeholder="プロンプトを入力してください..."></textarea>
+    </div>
+    
+    <div>
+      <label for="input">入力テキスト:</label>
+      <textarea id="input" placeholder="テキストを入力または選択してください..."></textarea>
+    </div>
+
+    <div class="control-panel">
+      <button id="sendButton">送信</button>
+      <button id="copyButton" disabled>結果をコピー</button>
+    </div>
+    <div id="loading" class="loading" style="display: none;">処理中...</div>
+    <div id="response"></div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
