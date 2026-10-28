@@ -1,18 +1,39 @@
 {
   "manifest_version": 3,
   "name": "Claude AI Assistant",
-  "version": "1.0",
-  "description": "テキストをClaudeに送信して応答を表示する拡張機能",
+  "version": "2.0.0",
+  "description": "閲覧中のページや選択したテキストを、サイドパネルでClaudeに質問・要約・翻訳できる拡張機能",
+  "minimum_chrome_version": "116",
   "permissions": [
     "activeTab",
+    "contextMenus",
     "scripting",
+    "sidePanel",
     "storage"
   ],
-  "options_page": "options.html",
   "host_permissions": [
     "https://api.anthropic.com/*"
   ],
+  "optional_host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
   "action": {
-    "default_popup": "popup.html"
+    "default_title": "Claude Assistant を開く"
+  },
+  "options_page": "options.html",
+  "commands": {
+    "_execute_action": {
+      "suggested_key": {
+        "default": "Alt+Shift+C"
+      },
+      "description": "Claude Assistant を開く"
+    }
   }
 }
