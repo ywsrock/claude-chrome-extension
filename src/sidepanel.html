@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Claude Assistant</title>
+  <link rel="stylesheet" href="sidepanel.css">
+</head>
+<body>
+  <header class="header">
+    <h1>Claude Assistant</h1>
+    <div class="header-actions">
+      <button id="newChatButton" class="ghost-button" type="button" title="会話をクリアして新しく始める">＋ 新しい会話</button>
+      <button id="settingsButton" class="ghost-button" type="button" title="設定" aria-label="設定">⚙️</button>
+    </div>
+  </header>
+
+  <div id="banner" class="banner" role="alert" hidden>
+    <span id="bannerText"></span>
+    <button id="bannerAction" class="link-button" type="button" hidden></button>
+    <button id="bannerClose" class="ghost-button" type="button" aria-label="閉じる">×</button>
+  </div>
+
+  <main id="messages" class="messages" aria-live="polite"></main>
+
+  <template id="emptyStateTemplate">
+    <section class="empty-state">
+      <h2>閲覧中のページについて質問できます</h2>
+      <ul>
+        <li><strong>✂️ 選択範囲</strong> または <strong>📄 ページ</strong> で内容を添付して質問</li>
+        <li><strong>要約・翻訳・解説</strong> などのボタンでワンクリック実行（何も添付していなければ選択範囲かページ全体を使います）</li>
+        <li>ページ上のテキストを右クリックしてもすぐに実行できます</li>
+        <li>続けて質問すると会話の流れを踏まえて答えます</li>
+      </ul>
+    </section>
+  </template>
+
+  <footer class="composer">
+    <div id="contextChip" class="context-chip" hidden>
+      <span id="contextLabel" class="context-label"></span>
+      <button id="contextClear" class="ghost-button" type="button" aria-label="添付を外す" title="添付を外す">×</button>
+    </div>
+    <div id="quickActions" class="quick-actions"></div>
+    <textarea id="input" rows="2" placeholder="質問を入力（Enterで送信／Shift+Enterで改行）"></textarea>
+    <div class="composer-bar">
+      <div class="composer-tools">
+        <button id="captureSelectionButton" class="tool-button" type="button" title="ページで選択中のテキストを添付">✂️ 選択範囲</button>
+        <button id="capturePageButton" class="tool-button" type="button" title="表示中のページ本文を添付">📄 ページ</button>
+        <select id="modelSelect" class="model-select" aria-label="モデル" title="使用するモデル"></select>
+      </div>
+      <button id="sendButton" class="primary-button" type="button">送信</button>
+    </div>
+  </footer>
+
+  <script type="module" src="sidepanel.js"></script>
+</body>
+</html>
